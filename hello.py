@@ -1,23 +1,19 @@
-def summer_69(arr):
-    print(arr)
+def count_primes(num):
+    count = 0 
+    index = 0
 
-    sum = 0
-    flag = True
+    primes = [2]
+    x = 3
+    if num < 2:  # for the case of num = 0 or 1
+        return 0
+    while x <= num:
+        for y in range(3,x,2):
+            if x % y == 0:
+                break
+            else:
+                primes.append(x)
+                x += 2
+    print(primes)
+    return len(primes)
 
-    for i in arr:
-        if i == 6 or i == 9:
-            flag = not flag
-            # print(flag)
-        if flag and i != 9:
-            sum += i
-        # print(i)
-
-    print(f"Sum = {sum}")
-# Check
-summer_69([1, 3, 5])
-
-# Check
-summer_69([4, 5, 6, 7, 8, 9])
-
-# Check
-summer_69([2, 1, 6, 9, 11])
+count_primes(100)
