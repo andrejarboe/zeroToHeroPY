@@ -1,6 +1,16 @@
-def ran_bool(num,low,high):
-    return low <= num and high >= num
+import string
 
-ran_bool(3,1,10)
-ran_bool(33,1,10)
-ran_bool(3,1,10)
+def ispangram(str1, alphabet=string.ascii_lowercase):
+    print(f"alphabet: {alphabet}")
+    str1 = str1.lower()
+    for letter in str1:
+        if letter in alphabet:
+            alphabet = alphabet.replace(letter, '')
+    if len(alphabet) == 0:
+        print("Is a pangram")
+    else:
+        print("Not a pangram")
+    print(f"alphabet: {alphabet} ")
+
+ispangram("The quick brown fox jumps over the lazy dog")
+ispangram("The quick")
