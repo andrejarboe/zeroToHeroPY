@@ -15,6 +15,8 @@ def display_board(board):
     print(f"        |        |       ")
     print(f"   {board[6]}    |   {board[7]}    |   {board[8]}    ")
     print(f"        |        |       ")
+    
+    print(f"=========================")
 
 # while game_on:
 
@@ -27,6 +29,7 @@ def playerInput():
         if choice not in ['X', 'O']:
             print("Sorry, please X or O")
     return choice
+
 def playerSelection(player1):
     if player1 == "X":
         return "O"
@@ -57,17 +60,23 @@ def switchPlayer(currentPlayer):
     return currentPlayer
 
 def checkWin(currentPlayer):
-    if board[0:2] == currentPlayer:
-        return True
-    elif board[3:5] == currentPlayer:
-        return True
-    elif board[5:8] == currentPlayer:
-        return True
-    # check diagonal
-    elif board[5:8] == currentPlayer:
-        return True
-    else:
+    winner = [currentPlayer, currentPlayer, currentPlayer]
+    print(f'checking board: {board}')
+    print(f'Current player: {currentPlayer}')
+    print(f"board[0:2]: {board[0:3]}")
+    if board[0:3] == winner or board[3:6] == winner or board[5:9] == winner:
+        display_board(board)
+        print(f"{currentPlayer} is the winner")
         return False
+    # check diagonals
+    elif board[0:8:4] == winner :
+        print(f"{currentPlayer} is the winner")
+        return False
+    elif board[2:6:2] == winner :
+        print(f"{currentPlayer} is the winner")
+        return False
+    else:
+        return True
     
     
 
@@ -88,7 +97,7 @@ while game_on:
     position = chosePosition(currentPlayer)
     updateBoard(currentPlayer, position)
     game_on = checkWin(currentPlayer)
-    currentPlayer = switchPlayer(currentPlayer)
+    # currentPlayer = switchPlayer(currentPlayer)
     
 
 # test_board = [' ',' ','O','X','O','X','O','X','O','X']
