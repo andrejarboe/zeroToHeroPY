@@ -63,20 +63,18 @@ def checkWin(currentPlayer):
     winner = [currentPlayer, currentPlayer, currentPlayer]
     print(f'checking board: {board}')
     print(f'Current player: {currentPlayer}')
-    print(f"board[0:2]: {board[0:3]}")
-    if board[0:3] == winner or board[3:6] == winner or board[5:9] == winner:
+    print(f"board[2:7:2]: {board[2:7:2]}")
+    if board[0:3] == winner or board[3:6] == winner or board[6:9] == winner:
         display_board(board)
         print(f"{currentPlayer} is the winner")
         return False
     # check diagonals
-    elif board[0:8:4] == winner :
+    elif board[0:9:4] == winner :
         print(f"{currentPlayer} is the winner")
         return False
-    elif board[2:6:2] == winner :
+    elif board[2:7:2] == winner :
         print(f"{currentPlayer} is the winner")
         return False
-    else:
-        return True
     
     
 
@@ -96,7 +94,7 @@ while game_on:
     display_board(board)
     position = chosePosition(currentPlayer)
     updateBoard(currentPlayer, position)
-    game_on = checkWin(currentPlayer)
+    checkWin(currentPlayer)
     # currentPlayer = switchPlayer(currentPlayer)
     
 
