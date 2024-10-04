@@ -11,6 +11,11 @@ my_sample = Sample()
 print(f"my_sample type: {type(my_sample)}")
 
 class Dog():
+    # Class object attribute
+    # Same for any instance of a class
+    species = 'mammal' 
+
+
     def __init__(self, breed, name, spots) -> None:
         # Attributes
         # We take in the argument
@@ -23,9 +28,10 @@ class Dog():
         self.spots = spots
         
 
-myDog = Dog(breed='Mut', name='Sammy', spots=False)
+myDog = Dog(breed='Mut', name='Samson', spots=False)
 
 print(f"myDog type: {type(myDog)}")
-print(f"myDog: {myDog.attribute}")
+print(f"myDog: {myDog.name}")
+print(f"myDog: {myDog.species}")
 
 # *******Part Two******** #
