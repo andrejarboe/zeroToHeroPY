@@ -62,7 +62,7 @@ print(f"{myCircle.radius}")
 print(f"{myCircle.getCircumference()}")
 
 
-# ******* Inheritance and Polymorphism******** #
+# ******* Inheritance ******** #
 class Animal():
     def __init__(self):
         print("ANIMAL CREATED ")
@@ -73,15 +73,57 @@ class Animal():
     def eat(self):
         print("I am eating")
     
+    def bark(self):
+        print("WOOF!!!")
+
+
 class Dog2(Animal):
     def __init__(self):
         Animal.__init__(self)
         print("Dog Created")
     
+    def eat(self):
+        print("I am a dog and eating")
+    
     def whoAmI(self):
         print("I am a dog")
+
 
 myDog2 = Dog2()
 # print(f"{}")
 myDog2.eat()
 myDog2.whoAmI()
+
+
+# ******* Polymorphism ******** #
+class Dog3():
+    def __init__(self, name):
+        self.name = name
+    
+    def speak(self):
+        return self.name + " says wooof!"
+
+class Cat():
+    def __init__(self, name):
+        self.name = name
+    
+    def speak(self):
+        return self.name + " says meow!"
+    
+niko = Dog3("Niko")
+felix = Cat("Felix")
+
+print(niko.speak())
+print(felix.speak())
+
+for pet in [niko, felix]:
+    print(pet)
+    print(pet.speak()) 
+    print(type(pet)) 
+    print(type(pet.speak()))
+
+def petSpeak(pet):
+    print(pet.speak())
+
+petSpeak(niko)
+petSpeak(felix)
