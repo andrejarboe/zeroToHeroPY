@@ -127,3 +127,29 @@ def petSpeak(pet):
 
 petSpeak(niko)
 petSpeak(felix)
+
+# ******* Abstrict Class ******** #
+class Animal(): 
+    def __init__(self, name):
+        self.name = name
+    
+    def speak(self):
+        raise NotImplementedError("Subclasss must implement this abstract method")
+# broken :
+# myanimal = Animal("Fred")
+# myanimal.speak()
+
+class Dog(Animal):
+    def speak(self):
+        return self.name+ " says woof!"
+
+class Cat(Animal):
+    def speak(self):
+        return self.name+ " says meow!"
+
+fido = Dog("Fido")
+rick = Cat("Rick")
+
+print(fido.speak())
+print(rick.speak())
+
