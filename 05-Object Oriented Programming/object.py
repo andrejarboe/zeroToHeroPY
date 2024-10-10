@@ -15,7 +15,6 @@ class Dog():
     # Same for any instance of a class
     species = 'mammal' 
 
-
     def __init__(self, breed, name, spots):
         # Attributes
         # We take in the argument
@@ -55,9 +54,34 @@ class Circle():
 
     # Method for getting Circumference
     def getCircumference(self):
-        return self.radius * self.pi * 2
+        return self.radius * Circle.pi * 2
 
 myCircle = Circle(30)
 print(f"{myCircle.pi}")
 print(f"{myCircle.radius}")
 print(f"{myCircle.getCircumference()}")
+
+
+# ******* Inheritance and Polymorphism******** #
+class Animal():
+    def __init__(self):
+        print("ANIMAL CREATED ")
+    
+    def whoAmI(self):
+        print("I am and animal")
+    
+    def eat(self):
+        print("I am eating")
+    
+class Dog2(Animal):
+    def __init__(self):
+        Animal.__init__(self)
+        print("Dog Created")
+    
+    def whoAmI(self):
+        print("I am a dog")
+
+myDog2 = Dog2()
+# print(f"{}")
+myDog2.eat()
+myDog2.whoAmI()
