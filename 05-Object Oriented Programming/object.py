@@ -153,3 +153,55 @@ rick = Cat("Rick")
 print(fido.speak())
 print(rick.speak())
 
+# ******* Special (Magic/Dunder) Methods ******** #
+class Book:
+    def __init__(self, title, author, pages):
+        print('A book is created')
+        self.title = title
+        self.author = author
+        self.pages = pages
+
+    def __str__(self):
+        return f'Title: {self.title}, author: {self.author}, pages: {self.pages}'
+    
+    def __len__(self):
+        return self.pages
+    
+    def __del__(self):
+        print('A book object has been deleted')
+
+b = Book('Pyton Rocks!', 'Jarboe', 200)
+print(b)
+print(len(b))
+del b
+
+# Home work
+class Account:
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self.balance = balance
+
+    def __str__(self):
+        return f'Accout ownwer:   {self.owner} \nAccount balance: {self.balance}'
+    
+    def deposit(self, amount):
+        if amount > 0:
+            print('Deposit Accepted')
+        else:
+            print('Deposit Not Accepted')
+
+# 1. Instantiate the class
+acct1 = Account('Jose',100)
+
+# 2. Print the object
+print(acct1)
+
+# 3. Show the account owner attribute
+print(f'{acct1.owner}')
+
+# 5. Make a series of deposits and withdrawals
+acct1.deposit(50)
+
+
+
+
